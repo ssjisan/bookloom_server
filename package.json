@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Ecommercer API with node and mongodb",
+  "description": "Bookloom Server Side",
   "main": "index.js",
   "type": "module",
   "scripts": {

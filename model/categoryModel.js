@@ -2,27 +2,28 @@ import mongoose from "mongoose";
 
 const { Schema } = mongoose;
 
-const noticeSchema = Schema(
+const categorySchema = new Schema(
   {
-    title: {
+    name: {
       type: String,
       required: true,
       trim: true,
+      unique: true,
     },
-    description: {
+    categoryID: {
       type: String,
+      unique: true,
       required: true,
-      trim: true,
-    },
-    link: {
-      type: String,
-      required: true,
-      trim: true,
     },
     author: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       required: true,
+    },
+    status: {
+      type: String,
+      enum: ["active", "inactive"],
+      default: "active",
     },
   },
   {
@@ -30,4 +31,4 @@ const noticeSchema = Schema(
   }
 );
 
-export default mongoose.model("Notice", noticeSchema);
+export default mongoose.model("Category", categorySchema);

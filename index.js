@@ -1,19 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
-import authRoutes from "./routers/authRoutes.js";
-import eventRoutes from "./routers/eventRoutes.js";
-import albumRoutes from "./routers/albumRoutes.js";
-import noticeRoutes from "./routers/noticeRoutes.js";
-import memberRoutes from "./routers/memberRoutes.js";
-import executiveBodyRoutes from "./routers/executiveBodyRoutes.js";
-import messageRoutes from "./routers/messageRoutes.js";
-import contactInfoRoutes from "./routers/contactInfoRoutes.js";
-import journalRoutes from "./routers/journalRoutes.js";
-import formRoutes from "./routers/formRoutes.js";
+import authRoutes from "./routers/authRoutes.js"
+import categoryRoutes from "./routers/categoryRoutes.js"
+import publisherRoutes from "./routers/publisherRoutes.js"
+import BookRoutes from "./routers/bookRoutes.js"
 import morgan from "morgan";
 import cors from "cors";
-import './middlewares/expireLinks.js'; // Import the cron job
 
 dotenv.config();
 
@@ -32,15 +25,9 @@ app.use(express.json());
 
 // router middelware //
 app.use(authRoutes);
-app.use(eventRoutes);
-app.use(albumRoutes);
-app.use(noticeRoutes);
-app.use(memberRoutes);
-app.use(executiveBodyRoutes);
-app.use(messageRoutes);
-app.use(contactInfoRoutes);
-app.use(journalRoutes);
-app.use(formRoutes);
+app.use(categoryRoutes);
+app.use(publisherRoutes);
+app.use(BookRoutes);
 
 const port = process.env.PORT || 8001;
 
